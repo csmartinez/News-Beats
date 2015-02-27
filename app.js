@@ -1,6 +1,6 @@
-var newspaper = angular.module('newspaper', ['ui.router']);
+var newsPaper = angular.module('newsPaper', ['ui.router']);
 
-newspaper.config(function($stateProvider) {
+newsPaper.config(function($stateProvider) {
   $stateProvider.state('home', {
     url: "",
     templateUrl: "partials/home.html"
@@ -13,7 +13,7 @@ $stateProvider.state('beats', {
   });
 
 $stateProvider.state('beats.reporters', {
-    url: "/:beatsId",
+    url: "/:beatId",
     templateUrl: "partials/beats.reporters.html",
     controller: 'ReportersCtrl'
   });

@@ -1,0 +1,19 @@
+.corner .glyphicon:hover, .fa:hover {
+  color: gray;
+}
+
+.corner .glyphicon {
+  font-size: 4em;
+}
+
+.corner {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  height: 100px;
+  z-index: 3;
+}
+
+.li {
+  font-size: 15pt;
+}
