@@ -17,3 +17,7 @@
 .li {
   font-size: 15pt;
 }
+
+.glyphicon, a, a:hover {
+  color: #5bc0de;
+}

@@ -1,25 +1,27 @@
+<h1><strong>Newspaper Divisions/Reporters Organizer</strong><br><small>Click glyphicons to add or view</small></h1>
 <div class="corner add">
   <a><span class="glyphicon glyphicon-plus" ng-click="add = !add"></span></a>
   <a ui-sref="home"><span class="glyphicon glyphicon-home"></span></a>
+</div>
+
+<div class="column" ng-show="add">
+  <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
+    <h2>Add a Beat</h2>
+    <div class="form-group">
+      <input type="text" ng-model="BeatsFactory.beatName" class="form-control" placeholder="Shane's dog. He's so exciting, isn't he?">
+    </div>
+    <button type="submit" ng-click="add = false" class="btn btn-info">Submit</button>
+  </form>
 </div>
 
 <div ng-show="beats.length" class="column1">
   <h2>Newspaper Beats:</h2>
   <ul>
     <li ng-repeat="item in beats">
-      <h4>{{ item.name }} <a ui-sref="beats.reporters({ beatId: item.id })"><span class="glyphicon glyphicon-pencil"></span></a></h4>
+      <h4>{{ item.name }} <a ui-sref="beats.reporters({ beatId: item.id })"><span class="glyphicon glyphicon-pencil" ng-click="addrep = !addrep"></span></a></h4>
     </li>
   </ul>
 </div>
 
-<div class="column" ng-show="add">
-  <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
-    <h3>Add a Beat</h3>
-    <div class="form-group">
-      <input type="text" ng-model="BeatsFactory.beatName" class="form-control" placeholder="Shane's dog. He's so exciting, isn't he?">
-    </div>
-    <button type="submit" ng-click="add = false" class="btn btn-primary">Submit</button>
-  </form>
-</div>
 
 <div ui-view></div>
