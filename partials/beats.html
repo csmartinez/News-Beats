@@ -4,24 +4,35 @@
   <a ui-sref="home"><span class="glyphicon glyphicon-home"></span></a>
 </div>
 
+<div class="row" ng-show="beats.length">
+  <div class="col-md-12">
+    <h4>Search Beats</h4>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <input ng-model="query" type="text" class="form-control" id="beat-name" placeholder="Search">
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="column" ng-show="add">
   <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
     <h2>Add a Beat</h2>
     <div class="form-group">
-      <input type="text" ng-model="BeatsFactory.beatName" class="form-control" placeholder="Shane's dog. He's so exciting, isn't he?">
+      <input type="text" ng-model="BeatsFactory.beatName" class="form-control" placeholder="Shane's dog">
     </div>
     <button type="submit" ng-click="add = false" class="btn btn-info">Submit</button>
   </form>
 </div>
 
 <div ng-show="beats.length" class="column1">
-  <h2>Newspaper Beats:</h2>
+  <h2 ng-show="beats.length && filtered.length">Newspaper Beats:</h2>
+  <h2 ng-show="beats.length && !filtered.length">No Matches</h2>
   <ul>
-    <li ng-repeat="item in beats">
+    <li ng-repeat="item in filtered = (beats | filter:query)">
       <h4>{{ item.name }} <a ui-sref="beats.reporters({ beatId: item.id })"><span class="glyphicon glyphicon-pencil" ng-click="addrep = !addrep"></span></a></h4>
     </li>
   </ul>
 </div>
-
 
 <div ui-view></div>
