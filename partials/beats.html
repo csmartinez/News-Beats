@@ -4,9 +4,9 @@
   <a ui-sref="home"><span class="glyphicon glyphicon-home"></span></a>
 </div>
 
-<div class="row" ng-show="beats.length">
+<div class="search" ng-show="beats.length">
   <div class="col-md-12">
-    <h4>Search Beats</h4>
+    <h3>Search Beats</h3>
     <form class="form-inline" role="form">
       <div class="form-group">
         <input ng-model="query" type="text" class="form-control" id="beat-name" placeholder="Search">
@@ -30,7 +30,7 @@
   <h2 ng-show="beats.length && !filtered.length">No Matches</h2>
   <ul>
     <li ng-repeat="item in filtered = (beats | filter:query)">
-      <h4>{{ item.name }} <a ui-sref="beats.reporters({ beatId: item.id })"><span class="glyphicon glyphicon-pencil" ng-click="addrep = !addrep"></span></a></h4>
+      <h4> {{ item.name }} <a ui-sref="beats.reporters({ beatId: item.id })"><span class="glyphicon glyphicon-pencil"></span></a></h4>
     </li>
   </ul>
 </div>
